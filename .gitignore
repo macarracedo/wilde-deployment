@@ -1,9 +1,6 @@
 /.terraform
 /.terraform.lock.hcl
-/deploy_terra-farm.tf
-/setup
+/.terraform.tfstate.lock.info
 /terraform.tfstate
 /terraform.tfstate.backup
-/user_data
-/variables.tf
 /virtualbox.box

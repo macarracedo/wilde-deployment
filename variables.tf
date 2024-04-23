@@ -1,6 +1,6 @@
 variable "resource_group_location" {
   type        = string
-  default     = "westeurope"
+  default     = "eastus"
   description = "Location for all resources."
 }
 
@@ -54,4 +54,39 @@ variable "restart_policy" {
     condition     = contains(["Always", "Never", "OnFailure"], var.restart_policy)
     error_message = "The restart_policy must be one of the following: Always, Never, OnFailure."
   }
+}
+
+variable "database_edition" {
+  type        = string
+  description = "Edition of the Azure SQL Database."
+  default     = "Basic"
+}
+
+variable "database_collation" {
+  type        = string
+  description = "Collation setting for the Azure SQL Database."
+  default     = "SQL_Latin1_General_CP1_CI_AS"
+}
+
+variable "mssql-admin" {
+  type        = string
+  description = "Username for the SQL Server administrator."
+  default = "sqladmin"
+}
+
+variable "database_admin_password" {
+  type        = string
+  description = "Password for the SQL Server administrator."
+  default = "P@ssw0rd1234!"
+}
+
+variable "private_dns_zone_name" {
+  type        = string
+  description = "Name of the private DNS zone."
+  default     = "wilde"
+}
+
+variable "wilde-app-port" {
+  type    = number
+  default = 8081
 }

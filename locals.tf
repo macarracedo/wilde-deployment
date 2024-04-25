@@ -1,3 +1,3 @@
 locals {
-  db_connection_string = "Driver={ODBC Driver 18 for SQL Server};Server=tcp:${azurerm_mssql_server.wilde-mssql-server.fully_qualified_domain_name},1433;Database=${azurerm_mssql_database.wilde-mssql-app-db.name};Uid=${var.mssql-admin};Pwd={${data.azurerm_key_vault_secret.db-secret.value}};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  sqlalchemy_connection_string = "mssql+pyodbc://${var.mssql-admin}:${var.mssql-admin-pass}@${azurerm_mssql_server.wilde-mssql-server.fully_qualified_domain_name}/${azurerm_mssql_database.wilde-mssql-app-db.name}?driver=ODBC+Driver+18+for+SQL+Server&trustServerCertificate=no"
 }

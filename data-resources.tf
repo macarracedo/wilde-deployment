@@ -12,22 +12,23 @@ resource "azurerm_mssql_server" "wilde-mssql-server" {
 
   // SQL Administrator
   administrator_login          = var.mssql-admin
-  administrator_login_password = data.azurerm_key_vault_secret.db-secret.value
+  administrator_login_password = var.mssql-admin-pass
+  # administrator_login_password = data.azurerm_key_vault_secret.db-secret.value
 
 }
 
-data "azurerm_key_vault_secret" "db-secret" {
-  name         = "db-secret"
-  key_vault_id = data.azurerm_key_vault.wilde-common-kv.id
-}
+# data "azurerm_key_vault_secret" "db-secret" {
+#   name         = "db-secret"
+#   key_vault_id = data.azurerm_key_vault.wilde-common-kv.id
+# }
 
 resource "azurerm_mssql_database" "wilde-mssql-app-db" {
   name                = "wilde-mssql-app-db"
   server_id           = azurerm_mssql_server.wilde-mssql-server.id
-  collation      = "SQL_Latin1_General_CP1_CI_AS"
-  license_type   = "LicenseIncluded"
-  sku_name       = "Basic"
-  max_size_gb    = 2
+  collation           = var.database_collation
+  license_type        = "LicenseIncluded"
+  sku_name            = "Basic"
+  max_size_gb         = 2
 }
 
 // PRIVATE NETWORKING 

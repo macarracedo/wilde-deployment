@@ -25,14 +25,9 @@ variable "container_name_prefix" {
 variable "image" {
   type        = string
   description = "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
-  default     = "manuelalonsocarracedo/wilde_test:v1"
+  default     = "manuelalonsocarracedo/wilde_test:v3"
 }
 
-variable "port" {
-  type        = number
-  description = "Port to open on the container and the public IP address."
-  default     = 5000
-}
 
 variable "cpu_cores" {
   type        = number
@@ -74,10 +69,11 @@ variable "mssql-admin" {
   default = "sqladmin"
 }
 
-variable "database_admin_password" {
+variable "mssql-admin-pass" {
   type        = string
   description = "Password for the SQL Server administrator."
   default = "P@ssw0rd1234!"
+  sensitive = true
 }
 
 variable "private_dns_zone_name" {
@@ -88,5 +84,5 @@ variable "private_dns_zone_name" {
 
 variable "wilde-app-port" {
   type    = number
-  default = 8081
+  default = 5000
 }

@@ -1,4 +1,3 @@
-
 variable "location" {
   type        = string
   description = "Location where to create the private endpoint"

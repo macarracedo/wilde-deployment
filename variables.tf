@@ -25,7 +25,7 @@ variable "container_name_prefix" {
 variable "image" {
   type        = string
   description = "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
-  default     = "manuelalonsocarracedo/wilde_test:v3"
+  default     = "manuelalonsocarracedo/wilde_test:v3.3"
 }
 
 
@@ -72,7 +72,7 @@ variable "mssql-admin" {
 variable "mssql-admin-pass" {
   type        = string
   description = "Password for the SQL Server administrator."
-  default = "P@ssw0rd1234!"
+  default = "Passw0rd1234!"
   sensitive = true
 }
 

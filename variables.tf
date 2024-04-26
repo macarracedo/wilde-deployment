@@ -25,7 +25,7 @@ variable "container_name_prefix" {
 variable "image" {
   type        = string
   description = "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
-  default     = "manuelalonsocarracedo/wilde_test:v1.0.dev53"
+  default     = "manuelalonsocarracedo/wilde_test:v1.0.dev57"
 }
 
 

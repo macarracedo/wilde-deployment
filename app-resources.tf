@@ -41,7 +41,7 @@ resource "azurerm_container_group" "wilde-app-container" {
     cpu    = var.cpu_cores
     memory = var.memory_in_gb
     environment_variables = {
-      "DB_CONNECTION_STRING" = local.sqlalchemy_connection_string
+      "DB_CONNECTION_STRING" = local.sqlalchemy_connection_string_2 # 1: pydbc connection string | 2: pymssql connection string
     }
 
     ports {
